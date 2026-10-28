@@ -15,6 +15,8 @@ Mobile/on-device multimodal inference experiments and reproducible Android deplo
 See [infra/a8002/README.md](infra/a8002/README.md) for deployment and access details.
 The published model inventory and per-file SHA256 values are recorded in [models/MANIFEST.json](models/MANIFEST.json); model binaries are not stored in GitHub.
 
+New contributors should start with the Chinese [newcomer handoff guide](docs/NEWCOMER_HANDOFF_CN.md). It explains the complete container-to-phone workflow and the current phone file safety boundaries.
+
 ## Repository boundary
 
 This repository stores source code, build recipes, topology documentation, and cryptographic model manifests. Model weights, private keys, access tokens, host authorization files, generated APKs/AARs, and transfer state are intentionally excluded.
