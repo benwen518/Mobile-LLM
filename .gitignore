@@ -1,0 +1,27 @@
+# Model weights and generated artifacts
+*.gguf
+*.nexa
+*.safetensors
+*.bin
+*.onnx
+*.pt
+*.pth
+*.ckpt
+*.apk
+*.aar
+
+# Credentials and local transfer state
+authorized_keys
+*.pem
+*.key
+.env
+vendor/
+*.partial
+*.part
+*.log
+
+# Build output
+.gradle/
+build/
+out/
+
