@@ -14,6 +14,14 @@
 
 The image contains Android SDK 35, Android NDK r28b, Gradle 8.9, JDK 17, CMake, Ninja, Git LFS, ADB, and OpenSSH.
 
+## Access
+
+```powershell
+ssh A8002-sbw_mobile_ai_dev_a2
+```
+
+The shared checkout is `/workspace/Mobile-LLM`, with origin `https://github.com/benwen518/Mobile-LLM.git`. Fetch and pull work without a credential. Push authentication is intentionally per contributor; no shared GitHub token or private key is stored in the container.
+
 ## ADB path
 
 ```text
@@ -26,7 +34,17 @@ PLR110
 
 The Windows watchdog is `infra/a8002/A8002-Mobile-AI-ADB-tunnel.ps1`. It controls only the SSH child process it creates and never terminates unrelated ADB or SSH processes.
 
+```bash
+adb -H 127.0.0.1 -P 5038 devices -l
+```
+
 ## Model policy
 
-Weights are not committed to GitHub. The private model tree is staged at `/home/share/models/sbw-mobile-ai/.incoming-20261028`, verified against `models/MANIFEST.json`, and published atomically as `/home/share/models/sbw-mobile-ai/20261028` only after every file passes SHA256 verification.
+Weights are not committed to GitHub. The private snapshot was verified against [models/MANIFEST.json](../../models/MANIFEST.json) and atomically published at `/home/share/models/sbw-mobile-ai/20261028`.
+
+- Files verified: 95/95
+- Payload bytes: 25,376,469,088
+- Manifest SHA256: `f96556db3d705038bcd4c68c36c92f86872ff930ab87d6c1b3962d3e4bd9f5e4`
+- Receipt SHA256: `e9844fb5ff6f9574fec0473d9d24ef773dc66a4794f51bd9aabdd3a738e89477`
+- Verification failures: 0
 

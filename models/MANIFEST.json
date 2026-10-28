@@ -1,0 +1,649 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-28T00:00:00+08:00",
+  "source_root": "<local-project-root>",
+  "remote_staging_root": "/home/share/models/sbw-mobile-ai/.incoming-20261028",
+  "remote_final_root": "/home/share/models/sbw-mobile-ai/20261028",
+  "policy": {
+    "exclude_partial": true,
+    "exclude_apk_aar": true,
+    "overwrite": false,
+    "verification": "sha256 every file"
+  },
+  "total_files": 95,
+  "total_bytes": 25376469088,
+  "roots": [
+    {
+      "source_root": "models/omni-assets/Amshaker/Mobile-O-0.5B",
+      "destination_root": "Mobile-O-0.5B",
+      "files": 25,
+      "bytes": 4798648751
+    },
+    {
+      "source_root": "models/omni-assets/ggml-org/Qwen2.5-Omni-3B-GGUF",
+      "destination_root": "Qwen2.5-Omni-3B-GGUF",
+      "files": 5,
+      "bytes": 3642963233
+    },
+    {
+      "source_root": "omniinfer-baseline/models",
+      "destination_root": "Qwen3-4B-Q4_0",
+      "files": 1,
+      "bytes": 2375773472
+    },
+    {
+      "source_root": "omni-multimodal-pilot/models/MiniCPM-o-4_5-gguf",
+      "destination_root": "MiniCPM-o-4_5-GGUF",
+      "files": 7,
+      "bytes": 6787899257
+    },
+    {
+      "source_root": "omni-multimodal-pilot/models/MiniCPM-V-4.6-gguf",
+      "destination_root": "MiniCPM-V-4.6-GGUF",
+      "files": 6,
+      "bytes": 1645736997
+    },
+    {
+      "source_root": "omnineural-android-pilot/20261023-preflight/model",
+      "destination_root": "OmniNeural-4B-mobile",
+      "files": 14,
+      "bytes": 4761081903
+    },
+    {
+      "source_root": "nexa-lfm2-android-pilot/20261023-pilot/model",
+      "destination_root": "LFM2-1.2B-npu-mobile",
+      "files": 8,
+      "bytes": 1272003479
+    },
+    {
+      "source_root": "nexa-cv-android-pilot/20261023-pilot/models",
+      "destination_root": "Nexa-CV-NPU",
+      "files": 9,
+      "bytes": 83209555
+    },
+    {
+      "source_root": "mobile-o-android-pilot/20261021-preflight/phone-bf16",
+      "destination_root": "Mobile-O-phone-bf16",
+      "files": 10,
+      "bytes": 4576395
+    },
+    {
+      "source_root": "mobile-o-android-pilot/20261021-preflight/phone-bf16-rope-corrected",
+      "destination_root": "Mobile-O-phone-bf16-rope-corrected",
+      "files": 10,
+      "bytes": 4576046
+    }
+  ],
+  "files": [
+    {
+      "source": "nexa-lfm2-android-pilot/20261023-pilot/model/fbb305295bf897cdc5abe42f48125d491d7a8226/.gitattributes",
+      "destination": "LFM2-1.2B-npu-mobile/fbb305295bf897cdc5abe42f48125d491d7a8226/.gitattributes",
+      "bytes": 1676,
+      "sha256": "ae16618e277aded09f0e7c804c69454d06cff49358eafd83f525fccb70703d2b"
+    },
+    {
+      "source": "nexa-lfm2-android-pilot/20261023-pilot/model/fbb305295bf897cdc5abe42f48125d491d7a8226/README.md",
+      "destination": "LFM2-1.2B-npu-mobile/fbb305295bf897cdc5abe42f48125d491d7a8226/README.md",
+      "bytes": 2234,
+      "sha256": "8d998a0c90050e3572c98ab27fe03caded111dcaa0b0e6bd062153cc4f49a22d"
+    },
+    {
+      "source": "nexa-lfm2-android-pilot/20261023-pilot/model/fbb305295bf897cdc5abe42f48125d491d7a8226/config.json",
+      "destination": "LFM2-1.2B-npu-mobile/fbb305295bf897cdc5abe42f48125d491d7a8226/config.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "nexa-lfm2-android-pilot/20261023-pilot/model/fbb305295bf897cdc5abe42f48125d491d7a8226/files-1-2.nexa",
+      "destination": "LFM2-1.2B-npu-mobile/fbb305295bf897cdc5abe42f48125d491d7a8226/files-1-2.nexa",
+      "bytes": 576,
+      "sha256": "87410f614fce04e9ba6edd9a37ba2f6358e36da931decf90d89b9d4c4607e4bd"
+    },
+    {
+      "source": "nexa-lfm2-android-pilot/20261023-pilot/model/fbb305295bf897cdc5abe42f48125d491d7a8226/files-2-2.nexa",
+      "destination": "LFM2-1.2B-npu-mobile/fbb305295bf897cdc5abe42f48125d491d7a8226/files-2-2.nexa",
+      "bytes": 4732442,
+      "sha256": "4845dc06719277be17450e76cf7f768dc6238dc1a2e54fb6f4e7a1c501b4b8a5"
+    },
+    {
+      "source": "nexa-lfm2-android-pilot/20261023-pilot/model/fbb305295bf897cdc5abe42f48125d491d7a8226/nexa.manifest",
+      "destination": "LFM2-1.2B-npu-mobile/fbb305295bf897cdc5abe42f48125d491d7a8226/nexa.manifest",
+      "bytes": 79,
+      "sha256": "d19c6912b7bde40572cba11a67c16e960d86e1b9d8ae7bc6e7b787f5a2a0530a"
+    },
+    {
+      "source": "nexa-lfm2-android-pilot/20261023-pilot/model/fbb305295bf897cdc5abe42f48125d491d7a8226/weights-1-2.nexa",
+      "destination": "LFM2-1.2B-npu-mobile/fbb305295bf897cdc5abe42f48125d491d7a8226/weights-1-2.nexa",
+      "bytes": 730395396,
+      "sha256": "81a19e1f7b70433379115221fe1f390dc692086e5c29b8d006e376595a4ed16e"
+    },
+    {
+      "source": "nexa-lfm2-android-pilot/20261023-pilot/model/fbb305295bf897cdc5abe42f48125d491d7a8226/weights-2-2.nexa",
+      "destination": "LFM2-1.2B-npu-mobile/fbb305295bf897cdc5abe42f48125d491d7a8226/weights-2-2.nexa",
+      "bytes": 536871076,
+      "sha256": "2579d0bc0ee66facf1698a2863c295618c5c512a3c0034e6fed1b159674e36e9"
+    },
+    {
+      "source": "omni-multimodal-pilot/models/MiniCPM-V-4.6-gguf/afe9accb78d2995d214cd912920c9c92f4015faa/.cache/huggingface/.gitignore",
+      "destination": "MiniCPM-V-4.6-GGUF/afe9accb78d2995d214cd912920c9c92f4015faa/.cache/huggingface/.gitignore",
+      "bytes": 1,
+      "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+    },
+    {
+      "source": "omni-multimodal-pilot/models/MiniCPM-V-4.6-gguf/afe9accb78d2995d214cd912920c9c92f4015faa/.cache/huggingface/download/MiniCPM-V-4_6-Q4_K_M.gguf.lock",
+      "destination": "MiniCPM-V-4.6-GGUF/afe9accb78d2995d214cd912920c9c92f4015faa/.cache/huggingface/download/MiniCPM-V-4_6-Q4_K_M.gguf.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "omni-multimodal-pilot/models/MiniCPM-V-4.6-gguf/afe9accb78d2995d214cd912920c9c92f4015faa/.cache/huggingface/download/qEldxtJSF9Tep6ehwOJX7MzEnMQ=.6b0c74962c44bc6bf4b655b9b02c13eda9d5a0491543ae976d1ac18e4b7892e2.incomplete",
+      "destination": "MiniCPM-V-4.6-GGUF/afe9accb78d2995d214cd912920c9c92f4015faa/.cache/huggingface/download/qEldxtJSF9Tep6ehwOJX7MzEnMQ=.6b0c74962c44bc6bf4b655b9b02c13eda9d5a0491543ae976d1ac18e4b7892e2.incomplete",
+      "bytes": 7886834,
+      "sha256": "3d9c9b86113356c8c46ed47c711587e0b32b7466d3f933261aca5992d4d287a4"
+    },
+    {
+      "source": "omni-multimodal-pilot/models/MiniCPM-V-4.6-gguf/afe9accb78d2995d214cd912920c9c92f4015faa/MiniCPM-V-4_6-Q4_K_M.gguf",
+      "destination": "MiniCPM-V-4.6-GGUF/afe9accb78d2995d214cd912920c9c92f4015faa/MiniCPM-V-4_6-Q4_K_M.gguf",
+      "bytes": 529101504,
+      "sha256": "6b0c74962c44bc6bf4b655b9b02c13eda9d5a0491543ae976d1ac18e4b7892e2"
+    },
+    {
+      "source": "omni-multimodal-pilot/models/MiniCPM-V-4.6-gguf/afe9accb78d2995d214cd912920c9c92f4015faa/download-verification.json",
+      "destination": "MiniCPM-V-4.6-GGUF/afe9accb78d2995d214cd912920c9c92f4015faa/download-verification.json",
+      "bytes": 1714,
+      "sha256": "a761042c9c8fbe7e9826a0f750def4651abe5632e2b4f7d7eb3152d1a8d49293"
+    },
+    {
+      "source": "omni-multimodal-pilot/models/MiniCPM-V-4.6-gguf/afe9accb78d2995d214cd912920c9c92f4015faa/mmproj-model-f16.gguf",
+      "destination": "MiniCPM-V-4.6-GGUF/afe9accb78d2995d214cd912920c9c92f4015faa/mmproj-model-f16.gguf",
+      "bytes": 1108746944,
+      "sha256": "ca931d861d0801d9003e50697cd764721a334107c0e0415a51168ee1938462de"
+    },
+    {
+      "source": "omni-multimodal-pilot/models/MiniCPM-o-4_5-gguf/db25077c33951fe163b42986fba0132e279872a2/.cache/huggingface/.gitignore",
+      "destination": "MiniCPM-o-4_5-GGUF/db25077c33951fe163b42986fba0132e279872a2/.cache/huggingface/.gitignore",
+      "bytes": 1,
+      "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+    },
+    {
+      "source": "omni-multimodal-pilot/models/MiniCPM-o-4_5-gguf/db25077c33951fe163b42986fba0132e279872a2/.cache/huggingface/download/MiniCPM-o-4_5-Q4_K_M.gguf.lock",
+      "destination": "MiniCPM-o-4_5-GGUF/db25077c33951fe163b42986fba0132e279872a2/.cache/huggingface/download/MiniCPM-o-4_5-Q4_K_M.gguf.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "omni-multimodal-pilot/models/MiniCPM-o-4_5-gguf/db25077c33951fe163b42986fba0132e279872a2/.cache/huggingface/download/RgIQB9mjdQ0RISN8SO-tQ7Gdatc=.1237a97ee081b8abebc47aa7dad565701e8f5f904cdc92f6723ac4281bbc0932.incomplete",
+      "destination": "MiniCPM-o-4_5-GGUF/db25077c33951fe163b42986fba0132e279872a2/.cache/huggingface/download/RgIQB9mjdQ0RISN8SO-tQ7Gdatc=.1237a97ee081b8abebc47aa7dad565701e8f5f904cdc92f6723ac4281bbc0932.incomplete",
+      "bytes": 5901234,
+      "sha256": "255f797ab926ce132791251f2b6889b0d8e69eeb96dc4423d96ea3ef26690ac9"
+    },
+    {
+      "source": "omni-multimodal-pilot/models/MiniCPM-o-4_5-gguf/db25077c33951fe163b42986fba0132e279872a2/MiniCPM-o-4_5-Q4_K_M.gguf",
+      "destination": "MiniCPM-o-4_5-GGUF/db25077c33951fe163b42986fba0132e279872a2/MiniCPM-o-4_5-Q4_K_M.gguf",
+      "bytes": 5026714400,
+      "sha256": "1237a97ee081b8abebc47aa7dad565701e8f5f904cdc92f6723ac4281bbc0932"
+    },
+    {
+      "source": "omni-multimodal-pilot/models/MiniCPM-o-4_5-gguf/db25077c33951fe163b42986fba0132e279872a2/audio/MiniCPM-o-4_5-audio-F16.gguf",
+      "destination": "MiniCPM-o-4_5-GGUF/db25077c33951fe163b42986fba0132e279872a2/audio/MiniCPM-o-4_5-audio-F16.gguf",
+      "bytes": 660167904,
+      "sha256": "d5b188ac7feaf98e17175c3f9bd14bf269301bfd187439fdaa3e3a494fc32ef7"
+    },
+    {
+      "source": "omni-multimodal-pilot/models/MiniCPM-o-4_5-gguf/db25077c33951fe163b42986fba0132e279872a2/download-verification.json",
+      "destination": "MiniCPM-o-4_5-GGUF/db25077c33951fe163b42986fba0132e279872a2/download-verification.json",
+      "bytes": 2534,
+      "sha256": "665d6a53d6bd67df6ec5442e5bfb88f8607970ec8de188fe7540d0d38cf9b3d3"
+    },
+    {
+      "source": "omni-multimodal-pilot/models/MiniCPM-o-4_5-gguf/db25077c33951fe163b42986fba0132e279872a2/vision/MiniCPM-o-4_5-vision-F16.gguf",
+      "destination": "MiniCPM-o-4_5-GGUF/db25077c33951fe163b42986fba0132e279872a2/vision/MiniCPM-o-4_5-vision-F16.gguf",
+      "bytes": 1095113184,
+      "sha256": "1453678cc4e4fe18de241952962e234f265cb8dda780773526103ab8ba82f421"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/.gitignore",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/.gitignore",
+      "bytes": 1,
+      "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/.gitattributes.metadata",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/.gitattributes.metadata",
+      "bytes": 104,
+      "sha256": "14bd47baba1215b4fccbd4db02c02e1f997473b6b9f1c2f8c0c2034273335074"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/README.md.metadata",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/README.md.metadata",
+      "bytes": 104,
+      "sha256": "486b8d2f269196da31aaedf8353404574dbac9a2d0c7a3bfef9e32c702603fda"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/added_tokens.json.metadata",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/added_tokens.json.metadata",
+      "bytes": 104,
+      "sha256": "33db2d0fbd0118c28f361886c20b02be4ffa4f2fff92e26f6b3a4015b303f1d7"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/config.json.metadata",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/config.json.metadata",
+      "bytes": 104,
+      "sha256": "17403982a71a0eb9c690055ca193d054352ffb76f005c22b3a183c4b2f70a04b"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/gen_projector.bin.metadata",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/gen_projector.bin.metadata",
+      "bytes": 128,
+      "sha256": "a7817ac1ab2f6866c769be7b80fae9a18fa0d329205bafbe76e569e8f1844afd"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/merges.txt.metadata",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/merges.txt.metadata",
+      "bytes": 104,
+      "sha256": "f774ed6da0499c5ae67925bb5176bf52483da14152179d6355d91926b6d4805e"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/mm_projector.bin.metadata",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/mm_projector.bin.metadata",
+      "bytes": 128,
+      "sha256": "44a817d24f2b897350a3ca31015bc6a819a6942155da54c79c43e438ddd46c55"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/model.safetensors.metadata",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/model.safetensors.metadata",
+      "bytes": 127,
+      "sha256": "5e1be2663209be8c2499bf04fcbf77ccaa8273c201a6c79830b95457bf9902ff"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/special_tokens_map.json.metadata",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/special_tokens_map.json.metadata",
+      "bytes": 102,
+      "sha256": "57c56fc5288990c0b5734f24e493559c9ec92b5faa8d32945ea5284912fdb85f"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/tokenizer.json.metadata",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/tokenizer.json.metadata",
+      "bytes": 128,
+      "sha256": "964f175956ec5a65478fc3a95846f4af1ea347621f9c207b3ca13bddb12d902b"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/tokenizer_config.json.metadata",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/tokenizer_config.json.metadata",
+      "bytes": 104,
+      "sha256": "b1bd77ac7b5fc1b3a42535de3bdd8f03ea7c80bf837ced6ebe17e861de248885"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/vocab.json.metadata",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.cache/huggingface/download/vocab.json.metadata",
+      "bytes": 103,
+      "sha256": "5b1faf58a8df4ffe7c9d8182bd9528d4f8b6d56c7406a8da3cc7a9dc03ea7ee0"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.gitattributes",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/.gitattributes",
+      "bytes": 1570,
+      "sha256": "34448b82c17d60fec9b65b1f093c115ddbaadc04beb1b0140b6bfed2e012a930"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/README.md",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/README.md",
+      "bytes": 4966,
+      "sha256": "5c244d9b3edc5f123a81355de41ea15e1dc05f642bb74152ca0387d8bce3b481"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/added_tokens.json",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/added_tokens.json",
+      "bytes": 140,
+      "sha256": "041beee123ea5d4905ef005efb8b296f6215214c2df8b87d534cda25ee18b53b"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/config.json",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/config.json",
+      "bytes": 1522,
+      "sha256": "381e41ff01d746c131fadf24812ae6520b8b1280180acb3d086fb90ceaaaee19"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/gen_projector.bin",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/gen_projector.bin",
+      "bytes": 888,
+      "sha256": "8d7bf359cbb7138122aa5806ccbe833e84aae0afb5819800ec61eff6335937cb"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/merges.txt",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/merges.txt",
+      "bytes": 1670344,
+      "sha256": "455e0caaa06abffc663e9282dfe71dde07fd1991eaf24146bf08793c4dba4497"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/mm_projector.bin",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/mm_projector.bin",
+      "bytes": 7116408,
+      "sha256": "8ce8c4b96b023519dd18de21ff74d41b7bcfc82befc23f718d411b0418e59ff6"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/model.safetensors",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/model.safetensors",
+      "bytes": 4775658842,
+      "sha256": "715db75c7d1aef8a8cd2c167f2a4f33438fe2f3d6ddb68b0c8b2f234d7bcd22b"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/special_tokens_map.json",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/special_tokens_map.json",
+      "bytes": 371,
+      "sha256": "0c685472e6baad72aebb273c25905ba4d9bda9fcb7c536eb07c89ad0d3742c6f"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/tokenizer.json",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/tokenizer.json",
+      "bytes": 11413649,
+      "sha256": "fdd99b646b9315f486441715cc3dc39f4d3175b45b1bcc05c9aa6642b92b690a"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/tokenizer_config.json",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/tokenizer_config.json",
+      "bytes": 1877,
+      "sha256": "b66a2b38766e6fc5c4ec259ea0c20fb322329bc01cce2a4f7f7ab3cc2f667287"
+    },
+    {
+      "source": "models/omni-assets/Amshaker/Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/vocab.json",
+      "destination": "Mobile-O-0.5B/92b5ef6a90a770c631153c3c32be0bbe049e2a8d/vocab.json",
+      "bytes": 2776833,
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    },
+    {
+      "source": "mobile-o-android-pilot/20261021-preflight/phone-bf16-rope-corrected/condition.pt",
+      "destination": "Mobile-O-phone-bf16-rope-corrected/condition.pt",
+      "bytes": 628279,
+      "sha256": "f46a3313a576687743a05b1d2c97753efabc7dd63096fc9a0100521e71286326"
+    },
+    {
+      "source": "mobile-o-android-pilot/20261021-preflight/phone-bf16-rope-corrected/events.jsonl",
+      "destination": "Mobile-O-phone-bf16-rope-corrected/events.jsonl",
+      "bytes": 19829,
+      "sha256": "f6717bf73c693c6e9ac168206465093868e51c91270e1154ac9e9afa3e265a91"
+    },
+    {
+      "source": "mobile-o-android-pilot/20261021-preflight/phone-bf16-rope-corrected/final_latent.pt",
+      "destination": "Mobile-O-phone-bf16-rope-corrected/final_latent.pt",
+      "bytes": 34380,
+      "sha256": "2dc7fee595b531e08ac201d54c31b9222733f5bac7f17a2e3d98df4046b025c8"
+    },
+    {
+      "source": "mobile-o-android-pilot/20261021-preflight/phone-bf16-rope-corrected/hidden.pt",
+      "destination": "Mobile-O-phone-bf16-rope-corrected/hidden.pt",
+      "bytes": 245779,
+      "sha256": "b3ac08eea6d1a8fdd398e2f1ae849ec10c0e7f78703d0adc8755871a445df3ca"
+    },
+    {
+      "source": "mobile-o-android-pilot/20261021-preflight/phone-bf16-rope-corrected/initial_latent.pt",
+      "destination": "Mobile-O-phone-bf16-rope-corrected/initial_latent.pt",
+      "bytes": 34394,
+      "sha256": "1c8c891443604510366e76a79b68ce5b546c3a4f8889a0ca8abe5fb97486b7a6"
+    },
+    {
+      "source": "mobile-o-android-pilot/20261021-preflight/phone-bf16-rope-corrected/input.json",
+      "destination": "Mobile-O-phone-bf16-rope-corrected/input.json",
+      "bytes": 655,
+      "sha256": "1fd0f3ccbaa493e77ae384af55b3a52a6ce5d20d88cdad30886abe604c3dd690"
+    },
+    {
+      "source": "mobile-o-android-pilot/20261021-preflight/phone-bf16-rope-corrected/mobileo.png",
+      "destination": "Mobile-O-phone-bf16-rope-corrected/mobileo.png",
+      "bytes": 396637,
+      "sha256": "a66d591d7babfa848f16725d8a4249c5109e646360a2157091538318e7739a5f"
+    },
+    {
+      "source": "mobile-o-android-pilot/20261021-preflight/phone-bf16-rope-corrected/step0_latent.pt",
+      "destination": "Mobile-O-phone-bf16-rope-corrected/step0_latent.pt",
+      "bytes": 34380,
+      "sha256": "d49983cf89f449a6bf47f25128203ca10417f342be8b9e55b1337f7f0ed33882"
+    },
+    {
+      "source": "mobile-o-android-pilot/20261021-preflight/phone-bf16-rope-corrected/step0_prediction.pt",
+      "destination": "Mobile-O-phone-bf16-rope-corrected/step0_prediction.pt",
+      "bytes": 34408,
+      "sha256": "3360ccd7ddf47649397270fc08392a742620229691583a3eb31b1236ea34c935"
+    },
+    {
+      "source": "mobile-o-android-pilot/20261021-preflight/phone-bf16-rope-corrected/vae_raw.pt",
+      "destination": "Mobile-O-phone-bf16-rope-corrected/vae_raw.pt",
+      "bytes": 3147305,
+      "sha256": "bb6b0a1f00cad9ab91416f72b7f2f7fa8a65466383a9e84f91fedae10b423f50"
+    },
+    {
+      "source": "mobile-o-android-pilot/20261021-preflight/phone-bf16/condition.pt",
+      "destination": "Mobile-O-phone-bf16/condition.pt",
+      "bytes": 628279,
+      "sha256": "68d6fe9048a6fbb5e44660f85f37b507ec61384a9cf76cc492bc4d96b375bbcd"
+    },
+    {
+      "source": "mobile-o-android-pilot/20261021-preflight/phone-bf16/events.jsonl",
+      "destination": "Mobile-O-phone-bf16/events.jsonl",
+      "bytes": 19803,
+      "sha256": "8fb941457f100d5b8c850782c8f2cda50ee8a059ea3fd325f347e7d42f748c62"
+    },
+    {
+      "source": "mobile-o-android-pilot/20261021-preflight/phone-bf16/final_latent.pt",
+      "destination": "Mobile-O-phone-bf16/final_latent.pt",
+      "bytes": 34380,
+      "sha256": "08242c551ce3ec0c45dd62bc52947ed343fb07f4f794a6503b232e7b5e7ba8ae"
+    },
+    {
+      "source": "mobile-o-android-pilot/20261021-preflight/phone-bf16/hidden.pt",
+      "destination": "Mobile-O-phone-bf16/hidden.pt",
+      "bytes": 245779,
+      "sha256": "ed9d4dbde2500c61d7bb1bf37162d5e2c4727a2cc96029e2531b761ed035dd01"
+    },
+    {
+      "source": "mobile-o-android-pilot/20261021-preflight/phone-bf16/initial_latent.pt",
+      "destination": "Mobile-O-phone-bf16/initial_latent.pt",
+      "bytes": 34394,
+      "sha256": "1c8c891443604510366e76a79b68ce5b546c3a4f8889a0ca8abe5fb97486b7a6"
+    },
+    {
+      "source": "mobile-o-android-pilot/20261021-preflight/phone-bf16/input.json",
+      "destination": "Mobile-O-phone-bf16/input.json",
+      "bytes": 655,
+      "sha256": "1fd0f3ccbaa493e77ae384af55b3a52a6ce5d20d88cdad30886abe604c3dd690"
+    },
+    {
+      "source": "mobile-o-android-pilot/20261021-preflight/phone-bf16/mobileo.png",
+      "destination": "Mobile-O-phone-bf16/mobileo.png",
+      "bytes": 397012,
+      "sha256": "84bcf431da8dfe84f41f00d9b9f7a00fa70d8e9349dff8202d0c5b6e90ae2eed"
+    },
+    {
+      "source": "mobile-o-android-pilot/20261021-preflight/phone-bf16/step0_latent.pt",
+      "destination": "Mobile-O-phone-bf16/step0_latent.pt",
+      "bytes": 34380,
+      "sha256": "4884c3a0f0ac3cb8b32e86be13d29d7fede4bb6a70a2975d53930678833749cc"
+    },
+    {
+      "source": "mobile-o-android-pilot/20261021-preflight/phone-bf16/step0_prediction.pt",
+      "destination": "Mobile-O-phone-bf16/step0_prediction.pt",
+      "bytes": 34408,
+      "sha256": "c96a0d4813281dec1c17ce6bdaaf5e49f6ce92c70591445f3345a6f2d527eac4"
+    },
+    {
+      "source": "mobile-o-android-pilot/20261021-preflight/phone-bf16/vae_raw.pt",
+      "destination": "Mobile-O-phone-bf16/vae_raw.pt",
+      "bytes": 3147305,
+      "sha256": "442de5f746bdac801dee4c354aea91a3b91a4a07c2161e2aff997e2a18ca9cbb"
+    },
+    {
+      "source": "nexa-cv-android-pilot/20261023-pilot/models/paddleocr/3e8beb470d0483f258da35fb25d8d719321a28b7/attachments-1-1.nexa",
+      "destination": "Nexa-CV-NPU/paddleocr/3e8beb470d0483f258da35fb25d8d719321a28b7/attachments-1-1.nexa",
+      "bytes": 734,
+      "sha256": "a757ecd13cc13a5a9876f9d9d41f29180870b9f39b669ce9f7a29185b449874c"
+    },
+    {
+      "source": "nexa-cv-android-pilot/20261023-pilot/models/paddleocr/3e8beb470d0483f258da35fb25d8d719321a28b7/config.json",
+      "destination": "Nexa-CV-NPU/paddleocr/3e8beb470d0483f258da35fb25d8d719321a28b7/config.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "nexa-cv-android-pilot/20261023-pilot/models/paddleocr/3e8beb470d0483f258da35fb25d8d719321a28b7/nexa.manifest",
+      "destination": "Nexa-CV-NPU/paddleocr/3e8beb470d0483f258da35fb25d8d719321a28b7/nexa.manifest",
+      "bytes": 78,
+      "sha256": "02472f59a1b274f1da18a430c9dece81c153f54d9d8566085ad1def09508c12a"
+    },
+    {
+      "source": "nexa-cv-android-pilot/20261023-pilot/models/paddleocr/3e8beb470d0483f258da35fb25d8d719321a28b7/ppocr_keys_v1.txt",
+      "destination": "Nexa-CV-NPU/paddleocr/3e8beb470d0483f258da35fb25d8d719321a28b7/ppocr_keys_v1.txt",
+      "bytes": 32871,
+      "sha256": "d917d7489d2c20d2e4cee8c17068f8ac54f6ee406a04bf5ac3b1ff5dc38e1e52"
+    },
+    {
+      "source": "nexa-cv-android-pilot/20261023-pilot/models/paddleocr/3e8beb470d0483f258da35fb25d8d719321a28b7/weights-1-1.nexa",
+      "destination": "Nexa-CV-NPU/paddleocr/3e8beb470d0483f258da35fb25d8d719321a28b7/weights-1-1.nexa",
+      "bytes": 77137300,
+      "sha256": "90775e64ab061689a18d25caffd06afac2d3fb9e852d8617818b8fc06136489c"
+    },
+    {
+      "source": "nexa-cv-android-pilot/20261023-pilot/models/yolo26n/ec61e42aea89ccc4c31e8d9f949dae040e7217bd/attachments-1-1.nexa",
+      "destination": "Nexa-CV-NPU/yolo26n/ec61e42aea89ccc4c31e8d9f949dae040e7217bd/attachments-1-1.nexa",
+      "bytes": 603,
+      "sha256": "9161e4a38f6427e7f726f90cb2299e53d88202b9ba0bfb5a0f7b71be2fb1bcb3"
+    },
+    {
+      "source": "nexa-cv-android-pilot/20261023-pilot/models/yolo26n/ec61e42aea89ccc4c31e8d9f949dae040e7217bd/coco.names",
+      "destination": "Nexa-CV-NPU/yolo26n/ec61e42aea89ccc4c31e8d9f949dae040e7217bd/coco.names",
+      "bytes": 624,
+      "sha256": "33c77761e124cc74911346865e3bc1219b87c2db7d0f106e3376bf5ef3785933"
+    },
+    {
+      "source": "nexa-cv-android-pilot/20261023-pilot/models/yolo26n/ec61e42aea89ccc4c31e8d9f949dae040e7217bd/nexa.manifest",
+      "destination": "Nexa-CV-NPU/yolo26n/ec61e42aea89ccc4c31e8d9f949dae040e7217bd/nexa.manifest",
+      "bytes": 77,
+      "sha256": "1687a8efd664b9cf0d634d394ea865c96fb95c33decdfa661d7abc505546703e"
+    },
+    {
+      "source": "nexa-cv-android-pilot/20261023-pilot/models/yolo26n/ec61e42aea89ccc4c31e8d9f949dae040e7217bd/weights-1-1.nexa",
+      "destination": "Nexa-CV-NPU/yolo26n/ec61e42aea89ccc4c31e8d9f949dae040e7217bd/weights-1-1.nexa",
+      "bytes": 6037268,
+      "sha256": "067d0dc873006fe43fa0ed8b195e0aec0969c68920ca191388afe16df935a2eb"
+    },
+    {
+      "source": "omnineural-android-pilot/20261023-preflight/model/29a007bdb737d41fc1cadb02d852193a33313adf/README.md",
+      "destination": "OmniNeural-4B-mobile/29a007bdb737d41fc1cadb02d852193a33313adf/README.md",
+      "bytes": 5569,
+      "sha256": "a65936ec121792038b290cee7fcf68b0c45811501e1997ff49949eed67c9ba4e"
+    },
+    {
+      "source": "omnineural-android-pilot/20261023-preflight/model/29a007bdb737d41fc1cadb02d852193a33313adf/attachments-1-3.nexa",
+      "destination": "OmniNeural-4B-mobile/29a007bdb737d41fc1cadb02d852193a33313adf/attachments-1-3.nexa",
+      "bytes": 575,
+      "sha256": "cc0176cae2b7f99c07fd83d58072f859902ce369295d280dad831fa2a579a02f"
+    },
+    {
+      "source": "omnineural-android-pilot/20261023-preflight/model/29a007bdb737d41fc1cadb02d852193a33313adf/attachments-2-3.nexa",
+      "destination": "OmniNeural-4B-mobile/29a007bdb737d41fc1cadb02d852193a33313adf/attachments-2-3.nexa",
+      "bytes": 576,
+      "sha256": "f548e94655ca1c36255cf59251be2c0ea6ca21965a1e4bc08542290cf533fe2a"
+    },
+    {
+      "source": "omnineural-android-pilot/20261023-preflight/model/29a007bdb737d41fc1cadb02d852193a33313adf/attachments-3-3.nexa",
+      "destination": "OmniNeural-4B-mobile/29a007bdb737d41fc1cadb02d852193a33313adf/attachments-3-3.nexa",
+      "bytes": 576,
+      "sha256": "332c4dd3c20971f054ce996a8a52865c7cd47bbba81edd0bed75b7631d124be0"
+    },
+    {
+      "source": "omnineural-android-pilot/20261023-preflight/model/29a007bdb737d41fc1cadb02d852193a33313adf/files-1-1.nexa",
+      "destination": "OmniNeural-4B-mobile/29a007bdb737d41fc1cadb02d852193a33313adf/files-1-1.nexa",
+      "bytes": 11421886,
+      "sha256": "5f18ce0331e193a37b3ccd1d84d84f75f205a87e81965eaf875ca2c5bd2763be"
+    },
+    {
+      "source": "omnineural-android-pilot/20261023-preflight/model/29a007bdb737d41fc1cadb02d852193a33313adf/nexa.manifest",
+      "destination": "OmniNeural-4B-mobile/29a007bdb737d41fc1cadb02d852193a33313adf/nexa.manifest",
+      "bytes": 81,
+      "sha256": "5de323fa3853b626c583adbd153ad30a2da2957b96ccfabfe815a36094175b09"
+    },
+    {
+      "source": "omnineural-android-pilot/20261023-preflight/model/29a007bdb737d41fc1cadb02d852193a33313adf/weights-1-8.nexa",
+      "destination": "OmniNeural-4B-mobile/29a007bdb737d41fc1cadb02d852193a33313adf/weights-1-8.nexa",
+      "bytes": 767131196,
+      "sha256": "3d56b93409a73f30f861dbbb37cee1a4f2afef9dd64da05f6c4d5d81ae918049"
+    },
+    {
+      "source": "omnineural-android-pilot/20261023-preflight/model/29a007bdb737d41fc1cadb02d852193a33313adf/weights-2-8.nexa",
+      "destination": "OmniNeural-4B-mobile/29a007bdb737d41fc1cadb02d852193a33313adf/weights-2-8.nexa",
+      "bytes": 1162208788,
+      "sha256": "4f7829a051243a0c72b91b1e37e87c2d3b6897f62959bbe5d85af2420a1ad32a"
+    },
+    {
+      "source": "omnineural-android-pilot/20261023-preflight/model/29a007bdb737d41fc1cadb02d852193a33313adf/weights-3-8.nexa",
+      "destination": "OmniNeural-4B-mobile/29a007bdb737d41fc1cadb02d852193a33313adf/weights-3-8.nexa",
+      "bytes": 4568596,
+      "sha256": "30d928822055af0c0e4cfc1eb59f723eaa4297e061e6bb3fdabdc31069fc2b77"
+    },
+    {
+      "source": "omnineural-android-pilot/20261023-preflight/model/29a007bdb737d41fc1cadb02d852193a33313adf/weights-4-8.nexa",
+      "destination": "OmniNeural-4B-mobile/29a007bdb737d41fc1cadb02d852193a33313adf/weights-4-8.nexa",
+      "bytes": 899818516,
+      "sha256": "e342fab0b5ba00bd9956a3cc3507055a6250f97e14da44f8bb8269cbfb383af8"
+    },
+    {
+      "source": "omnineural-android-pilot/20261023-preflight/model/29a007bdb737d41fc1cadb02d852193a33313adf/weights-5-8.nexa",
+      "destination": "OmniNeural-4B-mobile/29a007bdb737d41fc1cadb02d852193a33313adf/weights-5-8.nexa",
+      "bytes": 14281108,
+      "sha256": "5bad3d9f61a80fa345e5cdeb8926915e72bce858d398bede6dea6b6cd60a72b1"
+    },
+    {
+      "source": "omnineural-android-pilot/20261023-preflight/model/29a007bdb737d41fc1cadb02d852193a33313adf/weights-6-8.nexa",
+      "destination": "OmniNeural-4B-mobile/29a007bdb737d41fc1cadb02d852193a33313adf/weights-6-8.nexa",
+      "bytes": 5621404,
+      "sha256": "82246d7e069159d1e481ce3f79ab4b397710671c45fa01683e1e66c36fd80031"
+    },
+    {
+      "source": "omnineural-android-pilot/20261023-preflight/model/29a007bdb737d41fc1cadb02d852193a33313adf/weights-7-8.nexa",
+      "destination": "OmniNeural-4B-mobile/29a007bdb737d41fc1cadb02d852193a33313adf/weights-7-8.nexa",
+      "bytes": 651363156,
+      "sha256": "e278d6849a3a8f0f8f2d836d239285479475a0ad36980c6433b506faa582dc8e"
+    },
+    {
+      "source": "omnineural-android-pilot/20261023-preflight/model/29a007bdb737d41fc1cadb02d852193a33313adf/weights-8-8.nexa",
+      "destination": "OmniNeural-4B-mobile/29a007bdb737d41fc1cadb02d852193a33313adf/weights-8-8.nexa",
+      "bytes": 1244659876,
+      "sha256": "34e10ad8595ff85c6f0103d473628dc8264184b8fca2929759443106e37986e0"
+    },
+    {
+      "source": "models/omni-assets/ggml-org/Qwen2.5-Omni-3B-GGUF/75f1b73b657a50f5092502799457ccb4a4a1f9df/.cache/huggingface/.gitignore",
+      "destination": "Qwen2.5-Omni-3B-GGUF/75f1b73b657a50f5092502799457ccb4a4a1f9df/.cache/huggingface/.gitignore",
+      "bytes": 1,
+      "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+    },
+    {
+      "source": "models/omni-assets/ggml-org/Qwen2.5-Omni-3B-GGUF/75f1b73b657a50f5092502799457ccb4a4a1f9df/.cache/huggingface/download/Qwen2.5-Omni-3B-Q4_K_M.gguf.metadata",
+      "destination": "Qwen2.5-Omni-3B-GGUF/75f1b73b657a50f5092502799457ccb4a4a1f9df/.cache/huggingface/download/Qwen2.5-Omni-3B-Q4_K_M.gguf.metadata",
+      "bytes": 128,
+      "sha256": "74b57886ce3ff51e463f4d36308ae1f1d74e4363f8607f9c4ae67090f6662616"
+    },
+    {
+      "source": "models/omni-assets/ggml-org/Qwen2.5-Omni-3B-GGUF/75f1b73b657a50f5092502799457ccb4a4a1f9df/.cache/huggingface/download/mmproj-Qwen2.5-Omni-3B-Q8_0.gguf.metadata",
+      "destination": "Qwen2.5-Omni-3B-GGUF/75f1b73b657a50f5092502799457ccb4a4a1f9df/.cache/huggingface/download/mmproj-Qwen2.5-Omni-3B-Q8_0.gguf.metadata",
+      "bytes": 128,
+      "sha256": "fa32b48d21b7c9d261333884b1f9bfafb849ad718c86939a4d4e13b7f0c13d4d"
+    },
+    {
+      "source": "models/omni-assets/ggml-org/Qwen2.5-Omni-3B-GGUF/75f1b73b657a50f5092502799457ccb4a4a1f9df/Qwen2.5-Omni-3B-Q4_K_M.gguf",
+      "destination": "Qwen2.5-Omni-3B-GGUF/75f1b73b657a50f5092502799457ccb4a4a1f9df/Qwen2.5-Omni-3B-Q4_K_M.gguf",
+      "bytes": 2104931648,
+      "sha256": "4b0bd358c1e9ec55dd3055ef6d71c958c821533d85916a10cfa89c4552a86e29"
+    },
+    {
+      "source": "models/omni-assets/ggml-org/Qwen2.5-Omni-3B-GGUF/75f1b73b657a50f5092502799457ccb4a4a1f9df/mmproj-Qwen2.5-Omni-3B-Q8_0.gguf",
+      "destination": "Qwen2.5-Omni-3B-GGUF/75f1b73b657a50f5092502799457ccb4a4a1f9df/mmproj-Qwen2.5-Omni-3B-Q8_0.gguf",
+      "bytes": 1538031328,
+      "sha256": "4e6c816cd33f7298d07cb780c136a396631e50e62f6501660271f8c6e302e565"
+    },
+    {
+      "source": "omniinfer-baseline/models/Qwen3-4B-Q4_0.gguf",
+      "destination": "Qwen3-4B-Q4_0/Qwen3-4B-Q4_0.gguf",
+      "bytes": 2375773472,
+      "sha256": "92f4a83cdfe691b216a949f915e47f35f0ed85b833aa03490c719160ac5cdf7a"
+    }
+  ]
+}
