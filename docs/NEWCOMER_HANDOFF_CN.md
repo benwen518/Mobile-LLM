@@ -1,15 +1,30 @@
 # A800-2 端侧 AI 开发容器：新手交接手册
 
-> 适用环境：`sbw_mobile_ai_dev_a2` 容器、PLR110 Android 手机。  
-> 状态核查日期：2026-10-28。动态信息以每次开工时的检查结果为准。
+> 交接对象：第一次加入本项目、使用自己 Windows 电脑的同学。
+> 适用环境：A800-2 上的 `sbw_mobile_ai_dev_a2` 容器、PLR110 Android 手机。
+> 环境状态核查日期：2026-10-30。动态信息以每次开工时的检查结果为准。
+
+### 先看路径说明：不要照抄维护者电脑的绝对路径
+
+本文不把原维护者电脑上的 `C:\Users\...`、`E:\study\...` 等绝对路径作为交接入口。它们只在原维护者电脑上有效，对新同学没有可移植性。
+
+本文中的路径按以下规则理解：
+
+| 写法 | 属于哪台机器 | 说明 |
+| --- | --- | --- |
+| Windows PowerShell 命令 | 新同学自己的 Windows 电脑 | 本手册不要求创建固定的本地工程目录，也不要求配置 SSH 私钥或免密登录 |
+| `/workspace/...`、`/models/...`、`/config/...` | A800-2 Docker 容器 | 通过容器 SSH 登录后才能看到 |
+| `/home/sbw/...`、`/home/share/...` | A800-2 宿主机 | 只有宿主机 SSH 会话能直接看到 |
+| `/data/local/tmp/...`、`/data/user/0/...` | Android 手机 | 只能通过 ADB 或 Android 应用访问 |
+
+如果旧聊天、截图或旧文档里出现原维护者的 Windows 绝对路径，只把它当作历史来源说明，不要在自己的电脑上创建同名目录。共享交接入口只有 GitHub 仓库和容器中的 `/workspace/Mobile-LLM`。
 
 ## 1. 先理解：你实际上在操作三台“逻辑机器”
 
 ```text
-你的 Windows 电脑
-  └─ USB 连接手机，真正的 ADB server 当前运行在 Windows 5037
-       │
-       └─ SSH 反向隧道
+新同学自己的 Windows 电脑
+  └─ 用实验室账号和单独提供的密码 SSH 登录 A800-2 宿主机
+       └─ 在宿主机执行 docker exec 进入开发容器
             │
 A800-2 上的 Docker：sbw_mobile_ai_dev_a2
   ├─ /workspace：写代码、编译、保存实验回执
@@ -19,7 +34,7 @@ A800-2 上的 Docker：sbw_mobile_ai_dev_a2
             └─ Android 手机：PLR110 / arm64-v8a / Android 16（API 36）
 ```
 
-一句话理解：**代码在容器里编译，模型从容器只读库取，最终程序通过 ADB 装到或推到手机上运行。**
+一句话理解：**SSH 登录负责进入容器开发；ADB 隧道负责把某一台 Windows 上物理连接的手机暴露给容器。两者不是同一件事。**代码在容器里编译，模型从容器只读库取，最终程序通过 ADB 装到或推到手机上运行。
 
 不要把三层混在一起：
 
@@ -33,7 +48,7 @@ A800-2 上的 Docker：sbw_mobile_ai_dev_a2
 | 项目 | 当前状态 |
 | --- | --- |
 | 容器 | `sbw_mobile_ai_dev_a2`，运行中 |
-| 容器连接 | `ssh A8002-sbw_mobile_ai_dev_a2` |
+| 容器连接 | Windows 先执行 `ssh -p 7182 sbw@211.81.55.182`，登录宿主机后执行 `docker exec -it sbw_mobile_ai_dev_a2 bash` |
 | 手机 | 1 台：`3B661K0119Q00000`，型号 `PLR110` |
 | 手机架构 | `arm64-v8a` |
 | Android | Android 16，API 36 |
@@ -45,56 +60,79 @@ A800-2 上的 Docker：sbw_mobile_ai_dev_a2
 
 手机空间是当前最大的操作风险。**严禁把 `/models/20261028` 整体推到手机。** 它比手机剩余空间大，而且手机已经存在多份历史模型。
 
-## 3. 五分钟上手
+## 3. 新同学如何登录 A800-2 并进入容器
 
-### 3.1 从 Windows 进入容器
+### 3.1 从自己的 Windows 登录 A800-2 宿主机
+
+新同学不配置免密登录，不复制原维护者的 SSH 配置、私钥、别名或计划任务。打开 PowerShell，执行：
 
 ```powershell
-ssh A8002-sbw_mobile_ai_dev_a2
+ssh -p 7182 sbw@211.81.55.182
 ```
 
-进入后，提示符所在机器应为：
+终端会提示输入实验室账号密码。密码由项目负责人通过单独渠道提供，本文、GitHub、Notion、聊天记录和脚本中都不保存密码。输入密码时终端不会显示字符，这是正常现象。
+
+第一次连接会显示主机指纹。2026-10-30 实机读取到的 A800-2 ED25519 指纹是：
+
+```text
+SHA256:0aJoBxDVEqSBP/PIZc2mqNhKHkjptcfMeGk4BynJ59Y
+```
+
+先通过项目负责人核对指纹再接受。若以后出现 `REMOTE HOST IDENTIFICATION HAS CHANGED`，立即停止并联系负责人，不要直接删除 `known_hosts`。
+
+登录后检查：
 
 ```bash
 hostname
-# 预期：sbw-mobile-ai-a2
+id -un
+# 预期主机：NSL-A800-2
+# 预期用户：sbw
 ```
 
-### 3.2 在容器里定义一个方便使用的 ADB 函数
+### 3.2 从宿主机进入开发容器
+
+新同学不直接 SSH 到容器，也不需要容器密码。登录 A800-2 宿主机后执行：
+
+```bash
+docker ps --filter name=^/sbw_mobile_ai_dev_a2$ --format 'table {{.Names}}\t{{.Status}}'
+docker exec -it sbw_mobile_ai_dev_a2 bash
+```
+
+进入容器后检查：
+
+```bash
+hostname
+id -un
+pwd
+# 预期主机：sbw-mobile-ai-a2
+# 预期用户：root
+# 默认工作目录应在 /workspace
+```
+
+如果容器不在运行，或者 `docker exec` 报权限错误，不要自行启动、重建或重启容器，联系项目负责人处理。
+
+退出时执行一次 `exit` 回到 A800-2 宿主机，再执行一次 `exit` 回到自己的 Windows。
+
+### 3.3 登录后的五分钟检查
+
+在容器里先定义 ADB 函数：
 
 ```bash
 phone_adb() { adb -H 127.0.0.1 -P 5038 "$@"; }
 ```
 
-这个函数只在当前终端会话有效。后面的示例都假设已经定义它。
-
-### 3.3 确认连接的是正确手机
+该函数只在当前终端有效。检查当前手机：
 
 ```bash
 phone_adb devices -l
 phone_adb -s 3B661K0119Q00000 shell getprop ro.product.model
 phone_adb -s 3B661K0119Q00000 shell getprop ro.product.cpu.abi
-```
-
-预期能看到：
-
-```text
-3B661K0119Q00000  device  model:PLR110
-PLR110
-arm64-v8a
-```
-
-如果设备数量不是 1，或者序列号不同，**立即停止，不要安装、推送或删除任何文件。**
-
-### 3.4 每次开工先检查手机剩余空间
-
-```bash
 phone_adb -s 3B661K0119Q00000 shell 'df -h /data /sdcard'
 ```
 
-当前只剩约 12 GB。任何超过 500 MB 的推送，都应先记录：来源、目标、精确大小、是否已有同一份文件。
+预期只有一台 `3B661K0119Q00000 / PLR110 / arm64-v8a`。如果设备为空、数量不是 1、序列号变化或状态不是 `device`，停止部署并联系负责人。SSH 登录成功不代表 ADB 一定在线；手机和现有 ADB 隧道由维护者管理，新同学不要配置或替换 5038 隧道。
 
-### 3.5 检查 Git 工作区
+最后检查 Git 工作区：
 
 ```bash
 cd /workspace/Mobile-LLM
@@ -102,7 +140,69 @@ git status --short --branch
 git log -1 --oneline
 ```
 
-不要在一个有陌生未提交改动的工作区上直接覆盖文件。看到不属于自己的改动时，先联系项目负责人。
+不要在有陌生未提交改动的工作区上覆盖文件。看到不属于自己的改动时，先联系项目负责人。
+
+### 3.4 实验室服务器守则：禁止自行下载权重、数据集和大文件
+
+- 禁止在 A800-2 宿主机或容器里自行用 `wget`、`curl`、`huggingface-cli`、`hf download`、`git lfs pull` 等命令下载模型权重、数据集或其他大文件。
+- 禁止把 `/models/20261028` 整体复制到 `/workspace` 或推到手机。
+- `/models` 和 `/config` 是只读资产；不要修改权限、重新挂载或创建第二份副本。
+- 优先复用下表中的已有模型。缺少模型或数据集时，先报告名称、revision、格式、预计体积、来源和希望放置的目标路径，由项目负责人统一准备。
+- 容器当前没有 `/datasets` 挂载。不要自行创建 `/datasets` 并从外网填充数据。
+- 个人代码、少量输入和实验回执写入 `/workspace/Mobile-LLM`；大模型和正式数据集不进入 Git 仓库。
+
+#### 容器内已有模型路径（只读）
+
+统一根目录是 `/models/20261028`：
+
+| 模型/资产 | 容器内路径 | 约占用 |
+| --- | --- | ---: |
+| Mobile-O 0.5B | `/models/20261028/Mobile-O-0.5B` | 4.5 GiB |
+| OmniNeural-4B-mobile | `/models/20261028/OmniNeural-4B-mobile` | 4.5 GiB |
+| MiniCPM-o 4.5 GGUF | `/models/20261028/MiniCPM-o-4_5-GGUF` | 6.4 GiB |
+| MiniCPM-V 4.6 GGUF | `/models/20261028/MiniCPM-V-4.6-GGUF` | 1.6 GiB |
+| Qwen2.5-Omni 3B GGUF | `/models/20261028/Qwen2.5-Omni-3B-GGUF` | 3.4 GiB |
+| Qwen3 4B Q4_0 | `/models/20261028/Qwen3-4B-Q4_0` | 2.3 GiB |
+| LFM2 1.2B NPU | `/models/20261028/LFM2-1.2B-npu-mobile` | 1.2 GiB |
+| Nexa CV NPU | `/models/20261028/Nexa-CV-NPU` | 80 MiB |
+| Mobile-O 手机中间张量样例 | `/models/20261028/Mobile-O-phone-bf16` | 4.4 MiB |
+| Mobile-O 修正 RoPE 样例 | `/models/20261028/Mobile-O-phone-bf16-rope-corrected` | 4.4 MiB |
+
+模型清单和传输回执：
+
+```text
+/models/20261028/MODEL_TRANSFER_MANIFEST_20261028.json
+/models/20261028/MODEL_TRANSFER_RECEIPT_20261028.json
+```
+
+#### 容器内代码、输入与结果路径
+
+| 用途 | 容器内路径 | 规则 |
+| --- | --- | --- |
+| Git 工作区 | `/workspace/Mobile-LLM` | 在个人分支修改代码和文档 |
+| 本次少量输入 | `/workspace/Mobile-LLM/runs/<RUN_ID>/input` | 可新建；不要放正式大数据集 |
+| 本次输出 | `/workspace/Mobile-LLM/runs/<RUN_ID>/output` | 保存生成结果 |
+| 本次日志 | `/workspace/Mobile-LLM/runs/<RUN_ID>/logs` | 保存 stdout、stderr、logcat 和性能记录 |
+| 模型库 | `/models/20261028` | 只读使用，不复制整库 |
+| 通用数据集 | 当前没有 `/datasets` 挂载 | 需要时联系负责人统一准备，不自行下载 |
+
+#### 手机端模型、输入与输出路径
+
+| 用途 | 手机路径 | 新同学规则 |
+| --- | --- | --- |
+| 自己的新实验根目录 | `/data/local/tmp/sbw-handoff/<RUN_ID>` | 仅在确认 ADB 设备后创建 |
+| 本次输入 | `/data/local/tmp/sbw-handoff/<RUN_ID>/input` | 只推必要的小输入 |
+| 本次输出 | `/data/local/tmp/sbw-handoff/<RUN_ID>/output` | 运行后拉回容器 |
+| 本次日志 | `/data/local/tmp/sbw-handoff/<RUN_ID>/logs` | 运行后拉回容器 |
+| 历史文生图模型 | `/data/local/tmp/mobile-t2i/models` | 受保护，只读复用；不要覆盖或删除 |
+| 历史文生图输出 | `/data/local/tmp/mobile-t2i/out` | 只读查看和拉取；新文件必须唯一命名 |
+| 基线工程与权重 | `/data/local/tmp/baseline` | 整体受保护，不改库、不覆盖、不删除 |
+| MiniCPM-o 模型 | `/data/local/tmp/omni-o45/model` | 受保护，只读复用 |
+| MiniCPM-o 输出 | `/data/local/tmp/omni-o45/output` | 可只读拉取 |
+| Mobile-O 资产 | `/data/local/tmp/mobile-o-pilot/assets` | 模型、SANA、源码和 wheel 均受保护 |
+| Mobile-O rootfs | `/data/local/tmp/mobile-o-pilot/rootfs` | 不写入、不递归复制、不删除 |
+
+手机当前约剩 12 GiB。手机上已经存在的模型只能在确认格式、版本和 SHA-256 匹配后复用；不要为了方便再推一份。应用私有目录 `/data/user/0/...` 不属于新同学工作区，不得直接修改。
 
 ## 4. 推荐的完整开发流程
 
@@ -424,7 +524,22 @@ Windows 计划任务 “A8002 Mobile AI ADB tunnel”
 
 ## 8. 故障处理
 
-### 8.1 容器里看不到手机
+### 8.1 SSH 登录或进入容器失败
+
+新同学只使用下面这一条宿主机登录命令：
+
+```powershell
+ssh -p 7182 sbw@211.81.55.182
+```
+
+- 连接超时或拒绝：先确认当前网络能访问实验室入口，再联系负责人；不要修改端口或代理。
+- 提示密码错误：确认用户名是 `sbw`、键盘输入法正常，并使用负责人单独提供的密码；不要把密码写入命令、脚本或配置文件。
+- 显示主机指纹变化：停止连接并让负责人复核，不要直接删除整个 `known_hosts`。
+- 宿主机登录成功但 `docker exec` 报权限错误：联系负责人检查 `sbw` 的 Docker 权限。
+- `docker ps` 看不到 `sbw_mobile_ai_dev_a2`，或状态不是运行中：不要自行启动、重建或重启容器。
+- 不要从公网直接 SSH 到 32328，也不要配置 ProxyJump、容器密码或免密登录。进入容器统一使用 `docker exec -it sbw_mobile_ai_dev_a2 bash`。
+
+### 8.2 容器里看不到手机
 
 先检查：
 
@@ -432,20 +547,14 @@ Windows 计划任务 “A8002 Mobile AI ADB tunnel”
 phone_adb devices -l
 ```
 
-然后在 Windows PowerShell 检查：
-
-```powershell
-adb -P 5037 devices -l
-adb -P 5038 devices -l
-Get-ScheduledTask -TaskName 'A8002 Mobile AI ADB tunnel'
-```
-
-- Windows 能看到、容器看不到：检查隧道计划任务，不要重启手机或删除文件。
+- 手机与 5038 ADB 隧道由维护者管理。新同学不在自己的 Windows 上配置 ADB 隧道，也不检查或复制维护者的计划任务。
+- 容器里看不到设备时，记录 `phone_adb devices -l` 的原始输出并联系维护者确认 USB 与既有隧道状态；不要重启手机或删除文件。
 - 显示 `unauthorized`：解锁手机并在屏幕上确认 USB 调试授权。
 - 显示 `offline`：先重新插拔 USB；不要一上来就杀所有 adb/ssh 进程。
 - 序列号变化或出现多台设备：停止部署，明确使用 `-s <serial>`。
+- 原维护者 Windows 的 `A8002 Mobile AI ADB tunnel` 计划任务只属于那台电脑。新同学没有这个任务是正常的。
 
-### 8.2 手机空间不足
+### 8.3 手机空间不足
 
 ```bash
 phone_adb -s 3B661K0119Q00000 shell 'df -h /data; du -sk /data/local/tmp/<你的RUN_ID>'
@@ -459,7 +568,7 @@ phone_adb -s 3B661K0119Q00000 shell 'df -h /data; du -sk /data/local/tmp/<你的
 4. 得到负责人对精确路径的删除授权。
 5. 删除后再次检查空间和其他任务是否正常。
 
-### 8.3 NPU/HTP 报错
+### 8.4 NPU/HTP 报错
 
 先保存：
 
@@ -470,7 +579,7 @@ phone_adb -s 3B661K0119Q00000 shell 'df -h /data; du -sk /data/local/tmp/<你的
 
 不要通过替换 `/vendor` 库、关闭 SELinux、停止系统服务来“试一试”。这类操作必须由熟悉设备的人审批和执行。
 
-### 8.4 GitHub 推不上去
+### 8.5 GitHub 推不上去
 
 容器没有共享 PAT。先确认自己有仓库权限，并使用自己的凭据。不要把 Token 写进脚本、README、Git remote URL 或 shell history。
 
